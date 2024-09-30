@@ -1,23 +1,54 @@
 <!DOCTYPE html>
 <head>
     <title>Startpage</title>
-    <style>
-@import url('https://fonts.cdnfonts.com/css/courier-prime');
-@import url('https://fonts.googleapis.com/css?family=Rubik');
-
+<style>
 body {
   background-color: rgb(0, 0, 0);  
   margin: 0px;  
   height: 100vh;
-  color: white;
-  font-family: 'Rubik', 'Verdana', monospace;
+  color: antiquewhite;
+  font-family: 'Courier New', Courier, monospace;
   display: grid;
   place-items: center;
 }
 
 a {
   text-decoration: none;
-  color: white;
+  color: antiquewhite;
+}
+
+.internetsearcher {
+  background-color: rgba(0, 0, 0, 0.45);
+  border: 1px;
+  border-style: double;
+  border-radius: 15px;
+  border-color: cyan;
+  padding: 15px;
+}
+
+.internetsearcher input {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px;
+  border-style: double;
+  border-radius: 50px;
+  border-color: cyan;
+  color: cyan;
+  width: 500px;
+  height: 50px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.internetsearcher button {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px;
+  border-style: double;
+  border-radius: 50px;
+  border-color: cyan;
+  color: cyan;
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
 }
 
 .centered {
@@ -189,25 +220,8 @@ a {
   cursor: pointer;
 }
 
-#love-button {
-  color: rgb(33, 150, 243);
-  border-color: rgb(33, 150, 243);
-}
-
 body.menu-toggled > .meta-link > span {
   color: rgb(30, 30, 30);
-}
-
-#source-link {
-  bottom: 60px;
-}
-
-#source-link > i {
-  color: rgb(94, 106, 210);
-}
-
-#yt-link > i {
-  color: rgb(239, 83, 80);
 }
 
 .meta-link {
@@ -272,11 +286,11 @@ video {
             Your browser does not support the video tag.
         </video>
     </div>
-    <h2 id="date"></h2>
-    <form action="https://4get.ca/web?s=%s" method="get">
-      <input type="text" name="q" placeholder="Search 4get.ca">
-      <input type="submit" value="Search">
-    </form>    
+<h3 id="date"></h3> 
+<div class="internetsearcher"> 
+  <input type="text" id="searchterm" placeholder="Search the Internet" />
+  <button onclick="internetsearch()">Search</button>
+</div>
     <div class="card-swiper">
         <div class="card-groups">
             <div class="card-group" data-index="0" data-status="active">
@@ -319,6 +333,20 @@ video {
         <a href="http://192.168.8.30/home.html">Intranet</a>
     </span>
     <script>
+        function internetsearch() {
+            const searchterm = document.getElementById('searchterm').value.trim();
+
+            if (searchterm === '') {
+                alert('Please enter a search term.');
+                return;
+            }
+
+            const url = `https://4get.ca/web?s=${searchterm}&scraper=ddg&nsfw=yes`;
+
+
+            window.location.href = url;
+        }
+
         function updateDateTime() {
             var dateElement = document.getElementById("date");
             var currentDate = new Date();
