@@ -14,41 +14,67 @@ body {
 
 a {
   text-decoration: none;
-  color: antiquewhite;
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
-.internetsearcher {
-  background-color: rgba(0, 0, 0, 0.45);
-  border: 1px;
-  border-style: double;
-  border-radius: 15px;
-  border-color: cyan;
-  padding: 15px;
-}
-
-.internetsearcher input {
-  background-color: rgba(0, 0, 0, 0.1);
-  border: 1px;
-  border-style: double;
-  border-radius: 50px;
-  border-color: cyan;
-  color: cyan;
-  width: 500px;
-  height: 50px;
+h3 {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.5);
   text-align: center;
-  font-size: 20px;
 }
 
-.internetsearcher button {
+.searcher {
+  background-color: rgba(29, 16, 7, 0.5);
+  font-family: 'Courier New', Courier, monospace;
+  border: 1px;
+  border-style: double;
+  border-radius: 5px;
+  border-color: #feda8e;
+  padding: 10px;
+}
+
+.searcher p {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  text-align: center;
+}
+
+.searcher input {
+  background-color: rgba(0, 0, 0, 0.1);
+  font-family: 'Courier New', Courier, monospace;
+  border: 1px;
+  border-style: double;
+  border-radius: 5px;
+  border-color: #feda8e;
+  color: white;
+  width: 500px;
+  height: 25px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.searcher button {
+  background-color: rgba(0, 0, 0, 0.1);
+  font-family: 'Courier New', Courier, monospace;
+  border: 1px;
+  border-style: double;
+  border-radius: 5px;
+  border-color: #feda8e;
+  color: #ecaa53;
+  width: 100px;
+  height: 25px;
+  font-size: 15px;
+}
+
+.searcher button:hover {
   background-color: rgba(0, 0, 0, 0.1);
   border: 1px;
   border-style: double;
-  border-radius: 50px;
-  border-color: cyan;
-  color: cyan;
-  width: 100px;
-  height: 50px;
-  font-size: 20px;
+  border-radius: 5px;
+  border-color: white;
+  color: white;
 }
 
 .centered {
@@ -103,7 +129,7 @@ a {
 }
 
 .card {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.5);
   position: absolute;
   transition: transform 800ms cubic-bezier(.05,.43,.25,.95);
   
@@ -132,19 +158,19 @@ a {
 
 .big-card:nth-child(4) {
   transform: rotate(2deg);
-  background-image: url('tuks.png');
+  background-image: url('tuks.jpg');
   background-color: black;
 }
 
 .big-card:nth-child(6) {
   transform: translateX(-6%) rotate(-3deg);
-  background-image: url('java.png');
+  background-image: url('java.jpg');
   background-color: black;
 }
 
 .big-card:nth-child(8) {
   transform: translate(10%, 3%) rotate(5deg);
-  background-image: url('proton.jpeg');
+  background-image: url('proton.jpg');
 }
 
 .little-card:nth-child(1) {
@@ -160,7 +186,7 @@ a {
 }
 
 .little-card:nth-child(7) {
-  background-image: url('pepe.png');
+  background-image: url('pepe.jpg');
   background-color: black;
 }
 
@@ -263,7 +289,6 @@ html, body {
     height: 100%;
 }
 
-
 .video-container {
     position: fixed;
     top: 0;
@@ -283,13 +308,18 @@ video {
     <div class="video-container">
         <video autoplay loop muted playsinline>
             <source src="background.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
     </div>
 <h3 id="date"></h3> 
-<div class="internetsearcher"> 
-  <input type="text" id="searchterm" placeholder="Search the Internet" />
+<div class="searcher"> 
+  <p>Internet Search:</p>
+  <input type="text" id="searchterm" placeholder="Enter a search term..." />
   <button onclick="internetsearch()">Search</button>
+</div>
+<div class="searcher"> 
+  <p>Network Search:</p>
+  <input type="text" id="searchterm" placeholder="\\IP.Address.Goes.Here" />
+  <button onclick="networksearch()">Connect</button>
 </div>
     <div class="card-swiper">
         <div class="card-groups">
@@ -330,7 +360,7 @@ video {
     </div>
     <span>
         <a href="https://potgieter.tech">Website</a> ─
-        <a href="http://192.168.8.30/home.html">Intranet</a>
+        <a href="http://192.168.8.30/home.html">Intranet Dashboard</a>
     </span>
     <script>
         function internetsearch() {
@@ -345,6 +375,17 @@ video {
 
 
             window.location.href = url;
+        }
+
+        function networksearch() {
+            const ip = document.getElementById('ipInput').value.trim();
+    
+            if (ip) {
+
+                window.location.href = `http://${ip}`;
+            } else {
+                alert('Please enter an IP address.');
+            }
         }
 
         function updateDateTime() {
