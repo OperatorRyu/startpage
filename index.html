@@ -7,7 +7,7 @@ body {
   margin: 0px;  
   height: 100vh;
   color: antiquewhite;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Share Tech Mono', monospace;
   display: grid;
   place-items: center;
 }
@@ -16,6 +16,14 @@ a {
   text-decoration: none;
   color: rgb(255, 255, 255);
   background-color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: none;
+  color: wheat;
+  font-size: 20px;
+  background-color: rgba(100, 100, 100, 0.5);
 }
 
 h3 {
@@ -25,25 +33,38 @@ h3 {
   text-align: center;
 }
 
-.searcher {
+.datecontainer {
+  margin-top: 0px;
   background-color: rgba(29, 16, 7, 0.5);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Share Tech Mono', monospace;
+  color: white;
+  max-height: 25px;
+}
+
+.searcher {
+  max-height: 65px;
+  background-color: rgba(29, 16, 7, 0.5);
+  font-family: 'Share Tech Mono', monospace;
   border: 1px;
   border-style: double;
   border-radius: 5px;
   border-color: #feda8e;
-  padding: 10px;
+  padding: 5px;
+}
+
+.searcher:hover {
+  border-color: white;
 }
 
 .searcher p {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Share Tech Mono', monospace;
   font-size: 15px;
   text-align: center;
 }
 
 .searcher input {
   background-color: rgba(0, 0, 0, 0.1);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Share Tech Mono', monospace;
   border: 1px;
   border-style: double;
   border-radius: 5px;
@@ -55,9 +76,13 @@ h3 {
   font-size: 15px;
 }
 
+.searcher input:hover {
+  border-color: white;
+}
+
 .searcher button {
   background-color: rgba(0, 0, 0, 0.1);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Share Tech Mono', monospace;
   border: 1px;
   border-style: double;
   border-radius: 5px;
@@ -280,7 +305,7 @@ body.menu-toggled > .meta-link > span {
 
 .meta-link > span {
   color: white;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Share Tech Mono', monospace;
   font-weight: 500;
 }
 html, body {
@@ -303,63 +328,62 @@ video {
     min-height: 100%;
 }
     </style>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=share-tech-mono:400" rel="stylesheet" />
 </head>
-<body ondragstart="return false;">
+<body>
     <div class="video-container">
         <video autoplay loop muted playsinline>
             <source src="background.mp4" type="video/mp4">
         </video>
     </div>
-<h3 id="date"></h3> 
+<h3 id="date" class="datecontainer"></h3> 
 <div class="searcher"> 
-  <p>Internet Search:</p>
   <input type="text" id="searchterm" placeholder="Enter a search term..." />
   <button onclick="internetsearch()">Search</button>
-</div>
-<div class="searcher"> 
-  <p>Network Search:</p>
-  <input type="text" id="searchterm" placeholder="\\IP.Address.Goes.Here" />
-  <button onclick="networksearch()">Connect</button>
 </div>
     <div class="card-swiper">
         <div class="card-groups">
             <div class="card-group" data-index="0" data-status="active">
                 <div class="little-card card"></div>
                 <div class="big-card card">
-                <h3>Linux Stuff</h3>
+                <h3>~/Linux </h3>
                 <li><a href="https://reddit.com/r/unixporn/">r/unixporn</a></li>
-                <li><a href="https://reddit.com/r/archlinux/">r/archlinux</a></li>
-                <li><a href="https://reddit.com/r/startpages/">r/startpages</a></li>
                 <li><a href="https://reddit.com/r/linux_gaming/">r/linux_gaming</a></li>
+                <li><a href="https://aur.archlinux.org/">AUR</a></li>
                 </ul>
                 </div>
                 <div class="little-card card"></div>
                 <div class="big-card card">
-                <h3>University</h3>
-                <li><a href="https://rgitie.richfield.ac.za/pls/rgitp/w99pkg.mi_login">iEnabler</a></li>
-                <li><a href="https://learning.richfield.ac.za">Moodle</a></li>
+                <h3>~/University</h3>
+                <li><a href="https://learning.richfield.ac.za">Richfield</a></li>
+                <li><a href="https://researchgate.net">ResearchGate</a></li>
+                <li><a href="https://citethisforme.com">Citations</a></li>
                 </ul>
                 </div>
                 <div class="little-card card" id="quote-container"></div>
                 <div class="big-card card">
-                <h3>Developer Stuff</h3>
-                <li><a href="https://aur.archlinux.org/">AUR</a></li>
+                <h3>~/Dev</h3>
                 <li><a href="https://github.com/OperatorRyu">GitHub</a></li>
-                <li><a href="https://tailwindcss.com/docs/installation">Tailwind</a></li>
+                <li><a href="https://overapi.com">OverAPI</a></li>
+                <li><a href="https://fonts.bunny.net">Bunny Fonts</a></li>
                 </ul>
                 </div>
                 <div class="little-card card"></div>
                 <div class="big-card card">
-                <h3>General Tools</h3>
+                <h3>~/General</h3>
                 <li><a href="https://account.proton.me/apps">Proton</a></li>
                 <li><a href="https://youtube.com">YouTube</a></li>
+                <li><a href="https://wallhaven.cc">WallHaven</a></li>
+                <li><a href="https://warframe.market">Warframe Market</a></li>
+                <li><a href="https://overframe.gg">Overframe</a></li>
                 </ul>
                 </div>
             </div>
         </div>
     </div>
     <span>
-        <a href="https://potgieter.tech">Website</a> ─
+        <a href="https://potgieter.tech">Portfolio</a> ─
         <a href="http://192.168.8.30/home.html">Intranet Dashboard</a>
     </span>
     <script>
@@ -375,17 +399,6 @@ video {
 
 
             window.location.href = url;
-        }
-
-        function networksearch() {
-            const ip = document.getElementById('ipInput').value.trim();
-    
-            if (ip) {
-
-                window.location.href = `http://${ip}`;
-            } else {
-                alert('Please enter an IP address.');
-            }
         }
 
         function updateDateTime() {
